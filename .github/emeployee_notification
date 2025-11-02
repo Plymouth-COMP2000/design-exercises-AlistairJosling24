@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notification Centre"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="79dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:text="Notification"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+
+    <EditText
+        android:layout_width="320dp"
+        android:layout_height="79dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:text="Notification"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="326dp" />
+
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="X"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="185dp" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="X"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
+        android:text="Back"
+        android:textSize="10dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
