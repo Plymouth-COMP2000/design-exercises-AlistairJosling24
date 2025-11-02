@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"> <!-- light gray screen background for contrast -->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name of Restaurant Chain"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+
+    <Button
+        android:id="@+id/CustomerButton"
+        android:layout_width="214dp"
+        android:layout_height="83dp"
+        android:backgroundTi
+        android:text="Notifications"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="324dp"
+
+
+    <Button
+        android:id="@+id/CustomerButton"
+        android:layout_width="214dp"
+        android:layout_height="83dp"
+        android:backgroundTi
+        android:text="Menu"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="594dp"
+
+    <Button
+        android:id="@+id/CustomerButton"
+        android:layout_width="214dp"
+        android:layout_height="83dp"
+        android:backgroundTi
+        android:text="Customer Reservations"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="205dp"
