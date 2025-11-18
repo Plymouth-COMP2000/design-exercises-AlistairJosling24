@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background">
+
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:text="Time"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="214dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:text="Table Size"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer Reservations"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="112dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+
+    <EditText
+        android:layout_width="385dp"
+        android:layout_height="637dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="88dp" />
+
+    <EditText
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:background="@drawable/white_rectangle"
+        android:padding="18dp"
+        android:text="Table Number"
+        android:textSize="13dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="134dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="118dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        tools:layout_editor_absoluteX="303dp"
+        tools:layout_editor_absoluteY="166dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/black"
+        android:text="Back"
+        android:textSize="10dp"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
