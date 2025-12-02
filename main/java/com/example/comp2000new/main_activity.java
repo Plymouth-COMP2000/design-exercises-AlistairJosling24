@@ -8,15 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class main_activity extends AppCompatActivity {
 
+
+
+
     private Button employee;
     private Button customer;
-
-    String url = "http://10.240.72.69/comp2000/coursework/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+
 
         setContentView(R.layout.activity_main);
         employee = findViewById(R.id.staffButton);
@@ -24,6 +27,7 @@ public class main_activity extends AppCompatActivity {
 
         customer = findViewById(R.id.CustomerButton);
         customer.setOnClickListener(new listener2());
+
 
 
     }
@@ -46,4 +50,7 @@ public class main_activity extends AppCompatActivity {
 
         }
     }
+
+
+
 }

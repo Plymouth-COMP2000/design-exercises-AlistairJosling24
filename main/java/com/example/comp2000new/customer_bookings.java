@@ -16,4 +16,5 @@ public class customer_bookings extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_customer_bookings);
     }
+
 }
