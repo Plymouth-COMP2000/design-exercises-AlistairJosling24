@@ -8,6 +8,18 @@
     android:background="#F5F5F5"> <!-- light gray screen background for contrast -->
 
 
+    <Button
+        android:id="@+id/existing_bookingsButton"
+        android:layout_width="214dp"
+        android:layout_height="83dp"
+        android:text="My Bookings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,18 +46,19 @@
         android:id="@+id/MenuButton"
         android:layout_width="214dp"
         android:layout_height="83dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="500dp"
         android:text="Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
 
     <Button
         android:id="@+id/ReservationsButton"
         android:layout_width="214dp"
         android:layout_height="83dp"
-        android:text="Customer Reservations"
+        android:text="Make Reservations"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

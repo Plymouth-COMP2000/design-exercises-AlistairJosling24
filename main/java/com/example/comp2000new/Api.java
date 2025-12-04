@@ -31,7 +31,7 @@ public class Api {
         void onError(String error);
     }
 
-    private static final String BASE_URL = "http://10.0.2.2/comp2000/coursework";;
+    public static final String BASE_URL = "http://10.240.72.69/comp2000/coursework";
     private static RequestQueue requestQueue;
     private static final Gson gson = new Gson();
 
@@ -54,7 +54,7 @@ public class Api {
     public static void get_customer(Context context, String username, Response.Listener<Customer> listener,
                                     Response.ErrorListener errorListener) {
 
-        String url = BASE_URL + "/read_user/10925263/" + username;
+        String url = BASE_URL + "/read_user/{10925263}/" + username;
         Log.d("API_URL", url);
 
         JsonObjectRequest request = new JsonObjectRequest(
