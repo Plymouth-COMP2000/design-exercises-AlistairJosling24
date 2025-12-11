@@ -77,6 +77,43 @@ public class Api {
 
         requestQueue.add(request);
     }
+    public static void create_user(Context context, String username, String password, String firstname,
+            String lastname, String email, String contact, String usertype, Response.Listener<String> listener,
+            Response.ErrorListener errorListener
+    ) {
+
+        String url = BASE_URL + "/create_user/{10925263}";
+        Log.d("API_URL", url);
+
+        // Build JSON body
+        JSONObject body = new JSONObject();
+        try {
+            body.put("username", username);
+            body.put("password", password);
+            body.put("firstname", firstname);
+            body.put("lastname", lastname);
+            body.put("email", email);
+            body.put("contact", contact);
+            body.put("usertype", usertype);
+        } catch (JSONException e) {
+            errorListener.onErrorResponse(new VolleyError(e));
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                body,
+                response -> {
+                    // API returns message
+                    listener.onResponse(response.toString());
+                },
+                error -> errorListener.onErrorResponse(error)
+        );
+
+        requestQueue.add(request);
+    }
+
 
 }
 
