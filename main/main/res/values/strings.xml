@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Comp2000(new)</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="password">PASSWORD</string>
+    <string name="username">USERNAME</string>
+    <string name="login">Login</string>
+</resources>
