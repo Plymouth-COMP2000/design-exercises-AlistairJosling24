@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,30 +12,70 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class employee_menu extends AppCompatActivity {
+    private String username;
+    ArrayList<food_item> Menu;
+    ListView listview;
+    employee_FoodAdaptor adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_employee_menu);
+        username = getIntent().getStringExtra("username");
+        listview = findViewById(R.id.list_view);
+
         Button back;
+        Button add;
 
         back = findViewById(R.id.back_button);
-        back.setOnClickListener(new employee_menu.listener1());
+        add = findViewById(R.id.Add);
+
+        back.setOnClickListener(new listener1());
+        add.setOnClickListener(new listener2());
 
 
 
-
-
+        MyDatabaseHelper db = new MyDatabaseHelper(this);
+        Menu = db.getMenuItems();  // load from DB
+        adapter = new employee_FoodAdaptor(this, Menu, db);
+        listview.setAdapter(adapter);
     }
+
+
     class listener1 implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
             Intent back = new Intent(employee_menu.this, employee_homescreen.class);
+            back.putExtra("username", username);
             startActivity(back);
 
         }
     }
+
+    class listener2 implements View.OnClickListener{
+        public void onClick(View v){
+            Intent add = new Intent(employee_menu.this , employee_add_menu_item.class);
+            add.putExtra("username" , username);
+            startActivity(add);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Reload menu items from database
+        MyDatabaseHelper db = new MyDatabaseHelper(this);
+        Menu.clear();
+        Menu.addAll(db.getMenuItems());
+        adapter.notifyDataSetChanged();
+    }
+
 }

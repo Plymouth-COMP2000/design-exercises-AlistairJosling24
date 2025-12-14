@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class Customer_homescreen extends AppCompatActivity {
         Button notifications;
         Button bookings;
         Button mybookings;
+        ImageButton settings;
 
 
         setContentView(R.layout.activity_customer_homescreen);
@@ -38,6 +40,9 @@ public class Customer_homescreen extends AppCompatActivity {
 
         mybookings = findViewById(R.id.existing_bookingsButton);
         mybookings.setOnClickListener(new listener4());
+
+        settings = findViewById(R.id.settings_button);
+        settings.setOnClickListener(new listener5());
 
 
 
@@ -86,6 +91,17 @@ public class Customer_homescreen extends AppCompatActivity {
             Intent mybookings = new Intent(Customer_homescreen.this, customer_bookings.class);
             mybookings.putExtra("username", username);
             startActivity(mybookings);
+
+        }
+    }
+
+    class listener5 implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            Intent settings = new Intent(Customer_homescreen.this, Settings.class);
+            settings.putExtra("username", username);
+            startActivity(settings);
 
         }
     }

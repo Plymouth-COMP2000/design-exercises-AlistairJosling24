@@ -7,40 +7,10 @@
     android:background="@drawable/login_background">
 
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Time"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.628"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
 
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Table Size"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
-        app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+
+
 
 
     <TextView
@@ -71,47 +41,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Location"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
-        app:layout_constraintHorizontal_bias="0.113"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText4"
-        app:layout_constraintVertical_bias="0.203" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content"
-        android:text="Edit"
+    <ListView
+        android:id="@+id/booking_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
+        app:layout_constraintTop_toBottomOf="@+id/back_button"></ListView>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText4"
-        app:layout_constraintHorizontal_bias="0.963"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
+
+
 
     <Button
         android:id="@+id/back_button"

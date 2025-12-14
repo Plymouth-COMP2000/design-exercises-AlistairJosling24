@@ -35,12 +35,19 @@ public class customer_login extends AppCompatActivity {
         EditText Username = findViewById(R.id.username);
         EditText Password = findViewById(R.id.password);
         Button Login = findViewById(R.id.login);
+        Button Sign_up = findViewById(R.id.sign_up);
 
+
+
+
+
+        
         Login.setOnClickListener(v -> {
             String enteredUser = Username.getText().toString().trim();
             String enteredPass = Password.getText().toString().trim();
 
-            // NOW call get_customer
+
+            // now call get_customer
             Api.get_customer(
                     this,
                     enteredUser,
@@ -64,6 +71,10 @@ public class customer_login extends AppCompatActivity {
             );
         });
 
+        Sign_up.setOnClickListener(v -> {
+            Intent intent = new Intent(customer_login.this, customer_sign_up.class);
+            startActivity(intent);
+        });
 
 
 

@@ -7,53 +7,24 @@
     android:background="@drawable/login_background">
 
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Time"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.659"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
 
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Table Size"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.358"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Customer Reservations"
+        android:text="My Reservations"
         android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <EditText
         android:id="@+id/editText4"
@@ -65,60 +36,30 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.0" />
 
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="85dp"
-        android:layout_height="65dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Table Number"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13dp"
+    <ListView
+        android:id="@+id/booking_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintTop_toBottomOf="@+id/back_button"></ListView>
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
 
-        android:layout_height="wrap_content"
-        android:text="@string/edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.174" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.962"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/black"
-        android:text="@string/back"
+        android:text="Back"
+        android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.048"

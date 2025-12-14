@@ -1,7 +1,9 @@
 package com.example.comp2000new;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -68,11 +70,40 @@ public class customer_make_a_booking extends AppCompatActivity {
             EditText dateField = findViewById(R.id.date);
             Spinner timeSpinner = findViewById(R.id.time_spinner);
             Spinner sizeSpinner = findViewById(R.id.table_size_spinner);
+            Spinner locationSpinner = findViewById(R.id.location_spinner);
 
             // Extract values
             String date = dateField.getText().toString().trim();
             String time = timeSpinner.getSelectedItem().toString();
+            String location = locationSpinner.getSelectedItem().toString();
+            if (date.isEmpty()) {
+                dateField.setError("Date is required");
+                dateField.requestFocus();
+                return;
+            }
+
+            if (time.equals("Time")) {
+                Toast.makeText(customer_make_a_booking.this, "Please select a time", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (location.equals("Location")){
+                Toast.makeText(customer_make_a_booking.this, "Please select a location", Toast.LENGTH_SHORT).show();
+                return;
+
+            }
+
+            int sizePosition = sizeSpinner.getSelectedItemPosition();
+
+            if (sizePosition == 0) {
+                Toast.makeText(customer_make_a_booking.this, "Please select a table size", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int size = Integer.parseInt(sizeSpinner.getSelectedItem().toString());
+            SharedPreferences prefs = getSharedPreferences("customer_settings", MODE_PRIVATE);
+            boolean enabled = prefs.getBoolean(username + "_notif", true);
+
 
             MyDatabaseHelper db = new MyDatabaseHelper(customer_make_a_booking.this);
 
@@ -80,9 +111,18 @@ public class customer_make_a_booking extends AppCompatActivity {
 
             if (success) {
                 Toast.makeText(customer_make_a_booking.this, "Booking added!", Toast.LENGTH_SHORT).show();
+                String message = "Booking for " + date + " at " + time + " for " + size + " people has been confirmed!";
+                boolean notifSuccess = db.addnotification(username, message);
+                if(enabled){
+                    if(notifSuccess) {
+                        Toast.makeText(customer_make_a_booking.this, "\"Booking added", Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.d("DB", "Failed to add notification for " + username);}
+                }
             } else {
                 Toast.makeText(customer_make_a_booking.this, "Failed to add booking.", Toast.LENGTH_SHORT).show();
             }
+
         }
     }
 }

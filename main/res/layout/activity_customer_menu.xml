@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/login_background">
+    android:layout_height="match_parent">
 
 
     <TextView
@@ -16,85 +15,6 @@
         android:text="Menu"
         android:textColor="@color/black"
         android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="96dp"
-        android:padding="18dp"
-        android:text="Menu Section"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="359dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="172dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="76dp"
-        android:layout_height="407dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="304dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="95dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="184dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Photo of Food"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:layout_width="167dp"
-        android:layout_height="91dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="184dp"
-        android:background="@drawable/white_rectangle"
-        android:padding="18dp"
-        android:text="Description"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="13dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="66dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="20dp"
-        android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,13 +30,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/pay"
         android:layout_width="81dp"
         android:layout_height="58dp"
         android:layout_marginStart="324dp"
         android:layout_marginBottom="16dp"
-        android:text="Add"
+        android:text="Pay"
         android:textSize="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

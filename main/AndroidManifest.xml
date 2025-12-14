@@ -17,6 +17,52 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comp2000new">
         <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity android:name=".employee_add_menu_item" />
+        <activity
+            android:name=".customer_sign_up"
+            android:exported="false" />
+        <activity
+            android:name=".employee_edit_menu_item"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_Manager"
+            android:exported="false" />
+        <activity
+            android:name=".employee_FoodAdaptor"
+            android:exported="false" />
+        <activity
+            android:name=".employee_food_item"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentAdaptor"
+            android:exported="false" />
+        <activity
+            android:name=".payment_item"
+            android:exported="false" />
+        <activity
+            android:name=".customer_payment"
+            android:exported="false" />
+        <activity
+            android:name=".food_item"
+            android:exported="false" />
+        <activity
+            android:name=".FoodAdaptor"
+            android:exported="false" />
+        <activity
+            android:name=".Customer_editbooking"
+            android:exported="false" />
+        <activity
+            android:name=".bookings.java"
+            android:exported="false" />
+        <activity
+            android:name=".Adaptors"
+            android:exported="false" />
+        <activity
+            android:name=".notification_item"
+            android:exported="false" />
+        <activity
             android:name=".SQLite"
             android:exported="false" />
         <activity

@@ -1,9 +1,12 @@
 package com.example.comp2000new;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,30 +14,56 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class employee_notifications extends AppCompatActivity {
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_employee_notifications);
-        Button back;
+        setContentView(R.layout.activity_customer_notifications);
 
-        back = findViewById(R.id.back_button);
-        back.setOnClickListener(new listener1());
+        username = getIntent().getStringExtra("username");
 
+        MyDatabaseHelper db = new MyDatabaseHelper(this);
+        ArrayList<String> allMessages = new ArrayList<>();
 
+        // ---------------- READ NOTIFICATIONS ----------------
+        Cursor cursor = db.getReadableDatabase().query(
+                "notifications",
+                new String[]{"text", "created_at"},
+                null, null, null, null,
+                "created_at DESC"
+        );
 
-
-
-    }
-    class listener1 implements View.OnClickListener {
-
-        @Override
-        public void onClick(View v) {
-            Intent back = new Intent(employee_notifications.this, employee_homescreen.class);
-            startActivity(back);
-
+        if (cursor.moveToFirst()) {
+            do {
+                String msg = cursor.getString(cursor.getColumnIndexOrThrow("text"));
+                allMessages.add("NOTIFICATION: " + msg);
+            } while (cursor.moveToNext());
         }
+        cursor.close();
+
+
+        // ---------------- DISPLAY LIST ----------------
+        ListView listView = findViewById(R.id.notification_list_view);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                R.layout.notification_item,
+                R.id.notification_text,
+                allMessages
+        );
+        listView.setAdapter(adapter);
+
+
+        // ---------------- BACK BUTTON ----------------
+        Button back = findViewById(R.id.back_button);
+        back.setOnClickListener(v -> {
+            Intent backIntent = new Intent(employee_notifications.this, employee_homescreen.class);
+            backIntent.putExtra("username", username);
+            startActivity(backIntent);
+        });
     }
 }
