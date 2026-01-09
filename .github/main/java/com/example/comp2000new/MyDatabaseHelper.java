@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public MyDatabaseHelper(Context context) {
-        super(context, "my_database", null, 3);
+        super(context, "my_database", null, 4);
     }
 
     @Override
@@ -32,8 +32,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // default menu items using drawable integers
         db.execSQL("INSERT INTO menu (title, description, price, image) VALUES " +
                 "('Cheeseburger', 'Juicy double...', '£5.50', " + R.drawable.cheeseburger + "), " +
-                "('Pizza', 'A classic...', '£5.50', " + R.drawable.pizza + ") , " +
-                "('Fajitas', 'Hot and spicy...' , '£5.50' , " + R.drawable.fajitas + ")");
+                "('Pizza', 'A classic...', '£5.50', " + R.drawable.pizza + "), " +
+                "('Fajitas', 'Hot and spicy...', '£5.50', " + R.drawable.fajitas + "), " +
+                "('Steak', 'Grilled to perfection...', '£12.99', " + R.drawable.steak + "), " +
+                "('Lobster', 'Fresh and buttery...', '£18.99', " + R.drawable.lobster + "), " +
+                "('Chicken Carbonara', 'Creamy and rich...', '£9.99', " + R.drawable.chicken_carbonara + "), " +
+                "('Steak and Ale Pie', 'Classic British favourite...', '£10.50', " + R.drawable.steak_ale_pie + "), " +
+                "('Enchiladas', 'Cheesy and spicy...', '£8.99', " + R.drawable.enchilades + ")"
+        );
     }
 
     @Override
