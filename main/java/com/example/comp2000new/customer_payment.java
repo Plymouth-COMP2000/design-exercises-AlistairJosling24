@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,17 @@ public class customer_payment extends AppCompatActivity {
     PaymentAdaptor adapter;
     String username;
 
+    public void updateTotal() {
+        double total = 0;
+        for (payment_item item : Selected) {
+            total += item.getActualPrice();
+        }
+
+        TextView total_price = findViewById(R.id.total_price);
+        total_price.setText("Total: £" + String.format("%.2f", total));
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +49,7 @@ public class customer_payment extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_customer_payment);
         listview = findViewById(R.id.listview);
+
 
 
         Selected = FoodAdaptor.cart;
@@ -61,22 +74,7 @@ public class customer_payment extends AppCompatActivity {
 
     }
 
-    private String buildItemsString(ArrayList<payment_item> items) {
-        StringBuilder sb = new StringBuilder();
 
-        for (payment_item item : items) {
-            sb.append(item.getTitle())
-                    .append(" (")
-                    .append(item.getPrice())
-                    .append("), ");
-        }
-
-        if (sb.length() > 2) {
-            sb.setLength(sb.length() - 2); // remove last ", "
-        }
-
-        return sb.toString();
-    }
 
     private String saveOrderToDatabase() {
 

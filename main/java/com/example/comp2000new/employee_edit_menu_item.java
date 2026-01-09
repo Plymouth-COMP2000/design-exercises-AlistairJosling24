@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,7 @@ public class employee_edit_menu_item extends AppCompatActivity {
 
 
     EditText title, description, price;
-    Button save;
+    Button save, back;
 
     MyDatabaseHelper db;
 
@@ -27,6 +28,7 @@ public class employee_edit_menu_item extends AppCompatActivity {
         description = findViewById(R.id.edit_des);
         price = findViewById(R.id.edit_price);
         save = findViewById(R.id.save);
+        back = findViewById(R.id.back);
 
         Intent intent = getIntent();
         String passedTitle = intent.getStringExtra("title");
@@ -43,7 +45,12 @@ public class employee_edit_menu_item extends AppCompatActivity {
                     description.getText().toString(),
                     price.getText().toString()
             );
+            Toast.makeText(employee_edit_menu_item.this, "\"Item edited" , Toast.LENGTH_LONG ).show();
             finish();
+        });
+        back.setOnClickListener(v -> {
+            Intent back = new Intent(employee_edit_menu_item.this , employee_menu.class);
+            startActivity(back);
         });
     }
 }

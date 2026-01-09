@@ -23,6 +23,8 @@ public class Customer_editbooking extends AppCompatActivity {
     private Spinner tableSizeSpinner;
     private EditText date;
 
+    private EditText specialRequests;
+
 
     private String username;
     private int bookingId;
@@ -53,9 +55,10 @@ public class Customer_editbooking extends AppCompatActivity {
         timeSpinner = findViewById(R.id.time_spinner);
         tableSizeSpinner = findViewById(R.id.table_size_spinner);
         date = findViewById(R.id.date);
+        specialRequests = findViewById(R.id.special_requests);
 
         String[] locations = {"Location", "London", "Manchester", "Bristol", "Birmingham"};
-        String[] times = {"Time", "1", "2"};
+        String[] times = {"Time", "10am", "11am" , "12pm" ,"1pm" , "2pm" , "3pm", "4pm", "5pm" , "6pm" , "7pm" , "8pm"};
         String[] table_sizes = {"Table Size", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14",
                 "15", "16", "17", "18", "19", "20"};
 
@@ -68,36 +71,56 @@ public class Customer_editbooking extends AppCompatActivity {
         timeSpinner.setAdapter(adapter1);
         tableSizeSpinner.setAdapter(adapter2);
 
-        Button back = findViewById(R.id.back_button);
         Button submit = findViewById(R.id.submit_button);
-
-        back.setOnClickListener(new listener1());
         submit.setOnClickListener(new listener2());
     }
 
-    class listener1 implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent back = new Intent(Customer_editbooking.this, Customer_homescreen.class);
-            back.putExtra("username", username);
-            startActivity(back);
-        }
-    }
+
 
     class listener2 implements View.OnClickListener{
         public void onClick (View v){
-            String newLocation = locationSpinner.getSelectedItem().toString();
+            String newDate = date.getText().toString().trim();
             String newTime = timeSpinner.getSelectedItem().toString();
-            String newSize = tableSizeSpinner.getSelectedItem().toString();
-            String newDate = date.getText().toString();
+            String newLocation = locationSpinner.getSelectedItem().toString();
+            String newSizeStr = tableSizeSpinner.getSelectedItem().toString();
+            String special = specialRequests.getText().toString().trim();
+
+            if (newDate.isEmpty()) {
+                date.setError("Date is required");
+                date.requestFocus();
+                return;
+            }
+
+            if (newTime.equals("Time")) {
+                Toast.makeText(Customer_editbooking.this,
+                        "Please select a time", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (newLocation.equals("Location")) {
+                Toast.makeText(Customer_editbooking.this,
+                        "Please select a location", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (newSizeStr.equals("Table Size")) {
+                Toast.makeText(Customer_editbooking.this,
+                        "Please select a table size", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+
+
 
             MyDatabaseHelper db = new MyDatabaseHelper(Customer_editbooking.this);
             SQLiteDatabase database = db.getWritableDatabase();
 
+
             ContentValues cv = new ContentValues();
             cv.put("date", newDate);
             cv.put("time", newTime);
-            cv.put("size", Integer.parseInt(newSize));
+            cv.put("size", Integer.parseInt(newSizeStr));
 
             int rows = database.update("bookings", cv, "booking_id=?",
                     new String[]{String.valueOf(bookingId)}
@@ -105,10 +128,16 @@ public class Customer_editbooking extends AppCompatActivity {
 
             if (rows > 0) {
                 Toast.makeText(Customer_editbooking.this, "Booking updated!", Toast.LENGTH_SHORT).show();
-                String message = "Your booking for " + date + " at " + newTime + " for " + newSize + " people has been confirmed!";
+                String message =
+                                "UPDATED\n" +
+                                " Location: " + newLocation + "\n" +
+                                " Date: " + newDate + "\n" +
+                                " Time: " + newTime + "\n" +
+                                " Table for: " + newSizeStr+
+                                special;
                 boolean notifSuccess = db.addnotification(username, message);
                 if(notifSuccess) {
-                    Toast.makeText(Customer_editbooking.this, "\"Your booking for " + newDate + " at " + newTime + " for " + newSize + " people has been upadated!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Customer_editbooking.this, "\"Your booking for " + newDate + " at " + newTime + " for " + newSizeStr + " people has been upadated!", Toast.LENGTH_LONG).show();
                 } else {
                     Log.d("DB", "Failed to add notification for " + username);
                 }
@@ -117,9 +146,7 @@ public class Customer_editbooking extends AppCompatActivity {
             }
 
                 // Return to bookings page
-                Intent i = new Intent(Customer_editbooking.this, customer_bookings.class);
-                i.putExtra("username", username);
-                startActivity(i);
+                finish();
             }
         }
 

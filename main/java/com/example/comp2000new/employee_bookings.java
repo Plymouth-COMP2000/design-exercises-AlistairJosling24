@@ -18,11 +18,12 @@ import java.util.ArrayList;
 public class employee_bookings extends AppCompatActivity {
     private String username;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_customer_bookings);
+        setContentView(R.layout.activity_employee_bookings);
         username = getIntent().getStringExtra("username");
 
         // Load bookings from database
@@ -48,7 +49,7 @@ public class employee_bookings extends AppCompatActivity {
         }
         cursor.close();
 
-        // Attach adapter to ListView ---
+        // Attach adapter to ListView
         ListView listView = findViewById(R.id.booking_list);
         BookingAdaptor adapter = new BookingAdaptor(this, bookings, username);
         listView.setAdapter(adapter);
@@ -64,6 +65,8 @@ public class employee_bookings extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 }

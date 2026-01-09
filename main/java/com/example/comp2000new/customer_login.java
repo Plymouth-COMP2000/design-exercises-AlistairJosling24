@@ -47,7 +47,7 @@ public class customer_login extends AppCompatActivity {
             String enteredPass = Password.getText().toString().trim();
 
 
-            // NOW call get_customer
+            // now call get_customer
             Api.get_customer(
                     this,
                     enteredUser,

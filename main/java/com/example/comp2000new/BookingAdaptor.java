@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class BookingAdaptor extends BaseAdapter {
         cancel.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Booking bookingtocancel = items.get(position);
+                Toast.makeText(context,"\"Booking Cancelled!" ,Toast.LENGTH_LONG ).show();
 
                 MyDatabaseHelper db = new MyDatabaseHelper(context);
                 SQLiteDatabase database = db.getWritableDatabase();

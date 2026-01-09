@@ -48,6 +48,17 @@
         android:layout_margin="20dp"/>
 
     <Button
+        android:id="@id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/black"
+        android:text="Back"
+        app:layout_constraintBottom_toTopOf="@+id/add_title"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

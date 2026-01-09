@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -19,10 +21,15 @@ public class PaymentAdaptor extends BaseAdapter {
 
     private List<payment_item> items ;    // Data Source
 
-    public PaymentAdaptor(Context context, List<payment_item> items) {
-        this.context = context;
-        this.items = items;
 
+
+
+    private customer_payment paymentActivity;
+
+    public PaymentAdaptor(customer_payment activity, List<payment_item> items) {
+        this.paymentActivity = activity;
+        this.context = activity;
+        this.items = items;
     }
 
     @Override
@@ -55,10 +62,10 @@ public class PaymentAdaptor extends BaseAdapter {
             holder = new ViewHolder();
             holder.title = convertView.findViewById(R.id.title);
             holder.price = convertView.findViewById(R.id.price);
+            holder.delete = convertView.findViewById(R.id.delete);
             convertView.setTag(holder);
 
         }else{
-            // Reusing the View (that's recycled)
             holder = (ViewHolder) convertView.getTag();
         }
 
@@ -70,6 +77,14 @@ public class PaymentAdaptor extends BaseAdapter {
         // Bind data
         holder.title.setText(item.getTitle());
         holder.price.setText(item.getPrice());
+
+        holder.delete.setOnClickListener(v ->{
+            items.remove(position);
+            paymentActivity.updateTotal();
+            Toast.makeText(context, "\"Item Deleted" , Toast.LENGTH_LONG).show();
+
+            notifyDataSetChanged();
+        });
 
 
 
@@ -86,6 +101,10 @@ public class PaymentAdaptor extends BaseAdapter {
         TextView title;
 
         TextView price;
+
+        ImageButton delete;
+
+
 
 
 

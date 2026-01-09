@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -31,10 +33,23 @@ public class employee_homescreen extends AppCompatActivity {
         bookings.setOnClickListener(new listener3());
 
 
+        Button signout = findViewById(R.id.signout);
+        signout.setOnClickListener(v ->{
+            Toast.makeText(employee_homescreen.this, "\"You have been signed out!",
+                    Toast.LENGTH_LONG).show();
+            Intent signout1 = new Intent(employee_homescreen.this, main_activity.class );
+            startActivity(signout1);
+
+        });
+
+
 
 
 
     }
+
+
+
     class listener1 implements View.OnClickListener {
 
         @Override

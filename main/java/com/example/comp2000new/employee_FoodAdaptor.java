@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -66,6 +67,7 @@ public class employee_FoodAdaptor extends BaseAdapter {
             db.deleteMenuItem(item.getTitle());
             items.remove(position);
             notifyDataSetChanged();
+            Toast.makeText(context , "\"Item Deleted" , Toast.LENGTH_LONG).show();
         });
 
         holder.edit.setOnClickListener(v -> {

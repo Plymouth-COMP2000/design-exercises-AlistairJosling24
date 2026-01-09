@@ -13,16 +13,18 @@
         android:layout_marginTop="16dp"
         android:text="Notification Centre"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/notification_list_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="399dp"
+        android:layout_height="686dp"
+        android:layout_marginTop="1dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="12dp"
         android:padding="18dp"
@@ -38,5 +40,7 @@
         android:backgroundTint="@color/black"
         android:text="Back"
         android:textSize="12sp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

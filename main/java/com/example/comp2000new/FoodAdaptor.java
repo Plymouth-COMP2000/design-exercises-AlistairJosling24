@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,7 @@ public class FoodAdaptor extends BaseAdapter {
         food_item item = items.get(position);
 
         holder.add.setOnClickListener(v -> {
+            Toast.makeText(context ,"\"Added to basket" , Toast.LENGTH_LONG).show();
             cart.add(new payment_item(
                     item.getTitle(),
                     item.getPrice()

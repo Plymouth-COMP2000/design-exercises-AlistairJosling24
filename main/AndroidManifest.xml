@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Comp2000new">
         <activity
+            android:name=".Employee_editbooking"
+            android:exported="false" />
+        <activity
             android:name=".Settings"
             android:exported="false" />
         <activity android:name=".employee_add_menu_item" />

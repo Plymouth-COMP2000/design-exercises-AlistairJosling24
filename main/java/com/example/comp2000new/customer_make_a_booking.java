@@ -33,7 +33,7 @@ public class customer_make_a_booking extends AppCompatActivity {
         Spinner table_size_spinner = findViewById(R.id.table_size_spinner);
 
         String[] locations = {"Location", "London", "Manchester", "Bristol", "Birmingham"};
-        String[] times = {"Time", "1", "2"};
+        String[] times = {"Time", "10am", "11am" , "12pm" ,"1pm" , "2pm" , "3pm", "4pm", "5pm" , "6pm" , "7pm" , "8pm"};
         String[] table_sizes = {"Table Size" , "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" , "11" , "12" , "13" , "14",
                 "15", "16", "17", "18" , "19" , "20"};
 
@@ -68,12 +68,39 @@ public class customer_make_a_booking extends AppCompatActivity {
 
             // Get fields
             EditText dateField = findViewById(R.id.date);
+            EditText Special = findViewById(R.id.special_requests);
             Spinner timeSpinner = findViewById(R.id.time_spinner);
             Spinner sizeSpinner = findViewById(R.id.table_size_spinner);
+            Spinner locationSpinner = findViewById(R.id.location_spinner);
 
             // Extract values
             String date = dateField.getText().toString().trim();
+            String special = Special.getText().toString().trim();
             String time = timeSpinner.getSelectedItem().toString();
+            String location = locationSpinner.getSelectedItem().toString();
+            if (date.isEmpty()) {
+                dateField.setError("Date is required");
+                dateField.requestFocus();
+                return;
+            }
+            if (time.equals("Time")) {
+                Toast.makeText(customer_make_a_booking.this, "Please select a time", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if (location.equals("Location")){
+                Toast.makeText(customer_make_a_booking.this, "Please select a location", Toast.LENGTH_SHORT).show();
+                return;
+
+            }
+
+            int sizePosition = sizeSpinner.getSelectedItemPosition();
+
+            if (sizePosition == 0) {
+                Toast.makeText(customer_make_a_booking.this, "Please select a table size", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int size = Integer.parseInt(sizeSpinner.getSelectedItem().toString());
             SharedPreferences prefs = getSharedPreferences("customer_settings", MODE_PRIVATE);
             boolean enabled = prefs.getBoolean(username + "_notif", true);
@@ -85,7 +112,15 @@ public class customer_make_a_booking extends AppCompatActivity {
 
             if (success) {
                 Toast.makeText(customer_make_a_booking.this, "Booking added!", Toast.LENGTH_SHORT).show();
-                String message = "Booking for " + date + " at " + time + " for " + size + " people has been confirmed!";
+                String message =
+                                "CONFIRMED \n " +
+                                "Location: " + location + "\n" +
+                                "Date: " + date + "\n" +
+                                "Time: " + time + "\n" +
+                                "Table for: " + size  + "\n"+
+                                 special;
+
+
                 boolean notifSuccess = db.addnotification(username, message);
                 if(enabled){
                     if(notifSuccess) {
